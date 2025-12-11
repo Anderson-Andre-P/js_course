@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Playground Avançado de JavaScript</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header>
+      <h1>🚀 Playground Avançado de JavaScript</h1>
+      <p>
+        Pratique conceitos intermediários e avançados de JS: Async/Await,
+        Promises, Closures, Event Delegation, Fetch API e muito mais!
+      </p>
+    </header>
+
+    <nav class="navbar">
+      <button class="nav-btn active" data-section="basico">Básico</button>
+      <button class="nav-btn" data-section="intermediario">
+        Intermediário
+      </button>
+      <button class="nav-btn" data-section="avancado">Avançado</button>
+      <button class="nav-btn" data-section="apis">APIs & Async</button>
+    </nav>
+
+    <main>
+      <!-- SEÇÃO BÁSICO -->
+      <div class="section-group" data-group="basico">
+        <!-- Card 1 - Manipulação de DOM -->
+        <section class="card">
+          <h2>📝 Manipulação de DOM</h2>
+          <p id="texto-dinamico" class="demo-text">
+            Este texto pode ser manipulado!
+          </p>
+          <div class="actions">
+            <button id="btn-cor">Mudar Cor</button>
+            <button id="btn-toggle">Toggle Visibilidade</button>
+            <button id="btn-uppercase">MAIÚSCULO</button>
+            <button id="btn-lowercase">minúsculo</button>
+          </div>
+          <div class="info-box">
+            <strong>Conceitos:</strong> querySelector, textContent, classList,
+            style
+          </div>
+        </section>
+
+        <!-- Card 2 - Eventos e Event Listeners -->
+        <section class="card">
+          <h2>🎯 Eventos Avançados</h2>
+          <input type="text" id="input-eventos" placeholder="Digite algo..." />
+          <div class="event-logger" id="event-log"></div>
+          <div class="actions">
+            <button id="btn-clear-log">Limpar Log</button>
+          </div>
+          <div class="info-box">
+            <strong>Conceitos:</strong> addEventListener, event object,
+            event.target, input events
+          </div>
+        </section>
+
+        <!-- Card 3 - Lista com Event Delegation -->
+        <section class="card">
+          <h2>📋 Lista com Event Delegation</h2>
+          <div class="input-group">
+            <input type="text" id="todo-input" placeholder="Nova tarefa..." />
+            <button id="btn-add-todo">Adicionar</button>
+          </div>
+          <ul id="todo-list" class="todo-list"></ul>
+          <div class="info-box">
+            <strong>Conceitos:</strong> Event Delegation, event.target,
+            closest(), dataset
+          </div>
+        </section>
+      </div>
+
+      <!-- SEÇÃO INTERMEDIÁRIO -->
+      <div class="section-group hidden" data-group="intermediario">
+        <!-- Card 4 - Array Methods -->
+        <section class="card">
+          <h2>🔄 Array Methods Avançados</h2>
+          <div class="demo-data">
+            <code id="array-original">[10, 25, 5, 18, 33, 42, 7, 15]</code>
+          </div>
+          <div class="actions">
+            <button id="btn-map">Map (x2)</button>
+            <button id="btn-filter">Filter (>20)</button>
+            <button id="btn-reduce">Reduce (soma)</button>
+            <button id="btn-sort">Sort</button>
+            <button id="btn-chain">Chain (.filter.map.reduce)</button>
+          </div>
+          <div class="result-box" id="array-result"></div>
+          <div class="info-box">
+            <strong>Conceitos:</strong> map, filter, reduce, sort, method
+            chaining
+          </div>
+        </section>
+
+        <!-- Card 5 - Closures e Scoping -->
+        <section class="card">
+          <h2>🔒 Closures & Scoping</h2>
+          <div class="counter-demo">
+            <p>Contador 1: <span id="counter1">0</span></p>
+            <button id="btn-inc1">+</button>
+            <button id="btn-dec1">-</button>
+          </div>
+          <div class="counter-demo">
+            <p>Contador 2: <span id="counter2">0</span></p>
+            <button id="btn-inc2">+</button>
+            <button id="btn-dec2">-</button>
+          </div>
+          <div class="info-box">
+            <strong>Conceitos:</strong> Closures, IIFE, private variables,
+            factory functions
+          </div>
+        </section>
+
+        <!-- Card 6 - Destructuring & Spread -->
+        <section class="card">
+          <h2>📦 Destructuring & Spread</h2>
+          <button id="btn-destructure">Demonstrar Destructuring</button>
+          <button id="btn-spread">Demonstrar Spread</button>
+          <button id="btn-rest">Demonstrar Rest</button>
+          <pre class="code-result" id="destruct-result"></pre>
+          <div class="info-box">
+            <strong>Conceitos:</strong> Object/Array destructuring, spread
+            operator, rest parameters
+          </div>
+        </section>
+
+        <!-- Card 7 - Template Literals & String Methods -->
+        <section class="card">
+          <h2>📄 Template Literals</h2>
+          <input type="text" id="user-name" placeholder="Seu nome" />
+          <input type="number" id="user-age" placeholder="Sua idade" />
+          <button id="btn-generate-template">Gerar Template</button>
+          <div class="template-result" id="template-output"></div>
+          <div class="info-box">
+            <strong>Conceitos:</strong> Template literals, tagged templates,
+            string interpolation
+          </div>
+        </section>
+      </div>
+
+      <!-- SEÇÃO AVANÇADO -->
+      <div class="section-group hidden" data-group="avancado">
+        <!-- Card 8 - Classes & OOP -->
+        <section class="card">
+          <h2>🎓 Classes & POO</h2>
+          <div class="input-group">
+            <input
+              type="text"
+              id="product-name"
+              placeholder="Nome do produto"
+            />
+            <input type="number" id="product-price" placeholder="Preço" />
+            <button id="btn-add-product">Adicionar Produto</button>
+          </div>
+          <div id="products-container"></div>
+          <p><strong>Total:</strong> R$ <span id="total-price">0.00</span></p>
+          <div class="info-box">
+            <strong>Conceitos:</strong> Classes, constructor, methods, this,
+            inheritance
+          </div>
+        </section>
+
+        <!-- Card 9 - Higher Order Functions -->
+        <section class="card">
+          <h2>⚡ Higher Order Functions</h2>
+          <button id="btn-debounce-demo">Debounce Demo</button>
+          <button id="btn-throttle-demo">Throttle Demo</button>
+          <button id="btn-memoize-demo">Memoize Demo</button>
+          <div class="demo-output" id="hof-output"></div>
+          <div class="info-box">
+            <strong>Conceitos:</strong> Functions as arguments, returning
+            functions, debounce, throttle
+          </div>
+        </section>
+
+        <!-- Card 10 - Prototype & Inheritance -->
+        <section class="card">
+          <h2>🧬 Prototype & Herança</h2>
+          <button id="btn-prototype-demo">Demonstrar Prototype</button>
+          <button id="btn-inheritance-demo">Demonstrar Herança</button>
+          <pre class="code-result" id="prototype-result"></pre>
+          <div class="info-box">
+            <strong>Conceitos:</strong> Prototype chain, __proto__,
+            Object.create, inheritance
+          </div>
+        </section>
+      </div>
+
+      <!-- SEÇÃO APIs & ASYNC -->
+      <div class="section-group hidden" data-group="apis">
+        <!-- Card 11 - Promises -->
+        <section class="card">
+          <h2>⏳ Promises</h2>
+          <div class="actions">
+            <button id="btn-promise-resolve">Promise Resolve</button>
+            <button id="btn-promise-reject">Promise Reject</button>
+            <button id="btn-promise-all">Promise.all</button>
+            <button id="btn-promise-race">Promise.race</button>
+          </div>
+          <div class="promise-status" id="promise-status"></div>
+          <div class="info-box">
+            <strong>Conceitos:</strong> Promises, then/catch, Promise.all,
+            Promise.race
+          </div>
+        </section>
+
+        <!-- Card 12 - Async/Await -->
+        <section class="card">
+          <h2>🔄 Async/Await</h2>
+          <button id="btn-fetch-users">Buscar Usuários (API)</button>
+          <button id="btn-sequential">Sequential Requests</button>
+          <button id="btn-parallel">Parallel Requests</button>
+          <div class="loading hidden" id="loading">Carregando...</div>
+          <div id="api-result"></div>
+          <div class="info-box">
+            <strong>Conceitos:</strong> async/await, try/catch, error handling,
+            fetch API
+          </div>
+        </section>
+
+        <!-- Card 13 - LocalStorage & SessionStorage -->
+        <section class="card">
+          <h2>💾 Web Storage</h2>
+          <div class="input-group">
+            <input type="text" id="storage-key" placeholder="Chave" />
+            <input type="text" id="storage-value" placeholder="Valor" />
+          </div>
+          <div class="actions">
+            <button id="btn-save-local">Salvar Local</button>
+            <button id="btn-load-local">Carregar Local</button>
+            <button id="btn-clear-local">Limpar Local</button>
+          </div>
+          <div class="storage-display" id="storage-display"></div>
+          <div class="info-box">
+            <strong>Conceitos:</strong> localStorage, JSON.stringify/parse,
+            storage events
+          </div>
+        </section>
+
+        <!-- Card 14 - Tabela Dinâmica com Filtros -->
+        <section class="card full-width">
+          <h2>📊 Tabela Dinâmica Avançada</h2>
+          <div class="table-controls">
+            <input type="text" id="search-table" placeholder="Buscar..." />
+            <select id="sort-table">
+              <option value="">Ordenar por...</option>
+              <option value="id">ID</option>
+              <option value="nome">Nome</option>
+              <option value="idade">Idade</option>
+            </select>
+            <button id="btn-add-row">Adicionar Linha</button>
+          </div>
+          <div class="table-wrapper">
+            <table id="dynamic-table">
+              <thead>
+                <tr>
+                  <th data-sort="id">ID</th>
+                  <th data-sort="nome">Nome</th>
+                  <th data-sort="idade">Idade</th>
+                  <th data-sort="email">Email</th>
+                  <th>Ações</th>
+                </tr>
+              </thead>
+              <tbody></tbody>
+            </table>
+          </div>
+          <div class="info-box">
+            <strong>Conceitos:</strong> DOM manipulation, filtering, sorting,
+            data structures
+          </div>
+        </section>
+      </div>
+    </main>
+
+    <!-- Modal -->
+    <div id="modal" class="modal hidden">
+      <div class="modal-content">
+        <button class="modal-close" id="btn-close-modal">×</button>
+        <h3 id="modal-title">Modal</h3>
+        <div id="modal-body"></div>
+      </div>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
